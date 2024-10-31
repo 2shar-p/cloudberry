@@ -461,7 +461,7 @@ def impl(context, logdir):
 @then('the user waits until recovery_progress.file is created in {logdir} and verifies its format')
 def impl(context, logdir):
     attempt = 0
-    num_retries = 6000
+    num_retries = 60000
     log_dir = _get_gpAdminLogs_directory() if logdir == 'gpAdminLogs' else logdir
     recovery_progress_file = '{}/recovery_progress.file'.format(log_dir)
     while attempt < num_retries:
@@ -1559,8 +1559,6 @@ def impl(context):
     return
 
 
-@given('verify that mirror on content {content_ids} is {expected_status}')
-@when('verify that mirror on content {content_ids} is {expected_status}')
 @then('verify that mirror on content {content_ids} is {expected_status}')
 def impl(context, content_ids, expected_status):
     if content_ids == 'None':

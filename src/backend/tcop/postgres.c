@@ -1621,10 +1621,6 @@ restore_guc_to_QE(void )
 		}
 		PG_CATCH();
 		{
-
-#ifdef FAULT_INJECTOR
-			SIMPLE_FAULT_INJECTOR("restore_string_guc");
-#endif
 			/* if some guc can not restore successful
 			 * we can not keep alive gang anymore.
 			 */
@@ -6336,3 +6332,10 @@ disable_client_wait_timeout_interrupt(void)
 		DisableClientWaitTimeoutInterrupt();
 }
 
+/*
+ * Whether request on cancel or termination have arrived?
+ */
+inline bool
+CancelRequested() {
+	return InterruptPending && (ProcDiePending || QueryCancelPending);
+}
