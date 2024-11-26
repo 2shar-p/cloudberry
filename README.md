@@ -4,7 +4,7 @@
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="./.github/full_color_black.svg">
     <source media="(prefers-color-scheme: dark)" srcset="./.github/full_color_white.svg">
-    <img alt="Cloudberry Database Logo" src="./.github/full_color_black.svg" width="400px">
+    <img alt="Apache Cloudberry Logo" src="./.github/full_color_black.svg" width="400px">
   </picture>
 </p>
 

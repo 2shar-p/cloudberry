@@ -1,12 +1,12 @@
 <!-- For a better file structure, we moved this guide from original
 Greenplum Database READE.md here. Thanks all the original writers.-->
 
-# Build Cloudberry Database from Source Code
+# Build Apache Cloudberry from Source Code
 
-This guides describes how to build Cloudberry Database from source code.
+This guides describes how to build Apache Cloudberry from source code.
 
-- For building on Linux systems, see [Compile and Install Cloudberry Database on Linux](./README.Linux.md).
-- For building on macOS system, see [Compile and Install Cloudberry Database on macOS](./README.macOS.md).
+- For building on Linux systems, see [Compile and Install Apache Cloudberry on Linux](./README.Linux.md).
+- For building on macOS system, see [Compile and Install Apache Cloudberry on macOS](./README.macOS.md).
 
 ## Build the database
 
@@ -63,14 +63,14 @@ make installcheck-world
   parts, the respective targets can be run separately.
 
 * The PostgreSQL __check__ target does not work. Setting up a
-  Cloudberry Database cluster is more complicated than a single-node
+  Apache Cloudberry cluster is more complicated than a single-node
   PostgreSQL installation, and no-one's done the work to have __make
   check__ create a cluster. Create a cluster manually or use
   gpAux/gpdemo/ (example below) and run the toplevel __make
   installcheck-world__ against that. Patches are welcome!
 
 * The PostgreSQL __installcheck__ target does not work either, because
-  some tests are known to fail with Cloudberry Database. The
+  some tests are known to fail with Apache Cloudberry. The
   __installcheck-good__ schedule in __src/test/regress__ excludes
   those tests.
 
@@ -81,7 +81,7 @@ make installcheck-world
 
 # Alternative Configurations
 
-## Building Cloudberry Database without GPORCA
+## Building Apache Cloudberry without GPORCA
 
 Currently, CBDB is built with GPORCA by default. If you want to build CBDB
 without GPORCA, configure requires `--disable-orca` flag to be set.
@@ -94,7 +94,7 @@ make distclean
 ./configure --disable-orca --with-perl --with-python --with-libxml --prefix=/usr/local/cloudberrydb
 ```
 
-## Building Cloudberry Database with PXF
+## Building Apache Cloudberry with PXF
 
 PXF is an extension framework for Greenplum Database/Cloudberry
 Database to enable fast access to external Hadoop datasets. Refer to
@@ -104,9 +104,9 @@ Currently, CBDB is built with PXF by default (--enable-pxf is on).
 In order to build CBDB without pxf, simply invoke `./configure` with additional option `--disable-pxf`.
 PXF requires curl, so `--enable-pxf` is not compatible with the `--without-libcurl` option.
 
-## Building Cloudberry Database with Python3 enabled
+## Building Apache Cloudberry with Python3 enabled
 
-Cloudberry Database supports Python3 with plpython3u UDF
+Apache Cloudberry supports Python3 with plpython3u UDF
 
 See [how to enable Python3](../../src/pl/plpython/README.md) for details.
 

@@ -1,13 +1,13 @@
-# Compile and Install Cloudberry Database on Linux
+# Compile and Install Apache Cloudberry on Linux
 
-This document shares how to compile and install Cloudberry Database on Linux systems (CentOS 7, RHEL, and Ubuntu). Note that this document is for developers to try out Cloudberry Database in a single-node environments. DO NOT use this document for production environments.
+This document shares how to compile and install Apache Cloudberry on Linux systems (CentOS 7, RHEL, and Ubuntu). Note that this document is for developers to try out Apache Cloudberry in a single-node environments. DO NOT use this document for production environments.
 
 Take the following steps to set up the development environments:
 
 1. [Clone the GitHub repo](#step-1-clone-the-github-repo).
 2. [Install dependencies](#step-2-install-dependencies).
 3. [Perform prerequisite platform tasks](#step-3-perform-prerequisite-platform-tasks).
-4. [Build Cloudberry Database](#step-4-build-cloudberry-database).
+4. [Build Apache Cloudberry](#step-4-build-apache-cloudberry).
 5. [Verify the cluster](#step-5-verify-the-cluster).
 
 ## Step 1. Clone the GitHub repo
@@ -112,7 +112,7 @@ The following steps work on CentOS 7. For other CentOS versions, these steps mig
 
 ## Step 3. Perform prerequisite platform tasks
 
-After you have installed all the dependencies for your operating system, it is time to do some prerequisite platform tasks before you go on building Cloudberry Database. These operations include manually running `ldconfig`, creating the `gpadmin` user, and setting up a password to start the Cloudberry Database and test.
+After you have installed all the dependencies for your operating system, it is time to do some prerequisite platform tasks before you go on building Apache Cloudberry. These operations include manually running `ldconfig`, creating the `gpadmin` user, and setting up a password to start the Apache Cloudberry and test.
 
 1. Make sure that you add `/usr/local/lib` and `/usr/local/lib64` to the `/etc/ld.so.conf` file.
 
@@ -145,9 +145,9 @@ After you have installed all the dependencies for your operating system, it is t
         exit
         ```
 
-## Step 4. Build Cloudberry Database
+## Step 4. Build Apache Cloudberry
 
-After you have installed all the dependencies and performed the prerequisite platform tasks, you can start to build Cloudberry Database. Run the following commands in sequence.
+After you have installed all the dependencies and performed the prerequisite platform tasks, you can start to build Apache Cloudberry. Run the following commands in sequence.
 
 1. Configure the build environment. Enter the `cloudberrydb` directory and run the `configure` script.
 
@@ -214,7 +214,7 @@ After you have installed all the dependencies and performed the prerequisite pla
     ps -ef | grep postgres
     ```
     
-2. Connect to the Cloudberry Database and see the active segment information by querying the system table `gp_segement_configuration`. For detailed description of this table, see the Greenplum document [here](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-system_catalogs-gp_segment_configuration.html).
+2. Connect to the Apache Cloudberry and see the active segment information by querying the system table `gp_segement_configuration`. For detailed description of this table, see the Greenplum document [here](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-system_catalogs-gp_segment_configuration.html).
 
     ```sql
     $ psql -p 7000 postgres
@@ -224,7 +224,7 @@ After you have installed all the dependencies and performed the prerequisite pla
     postgres=# select version();
                                                                                             version                                                                                         
     -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    PostgreSQL 14.4 (Cloudberry Database 1.0.0+1c0d6e2224 build dev) on x86_64( GCC 13.2.0) 13.2.0, 64-bit compiled on Sep 22 2023 10:56:01
+    PostgreSQL 14.4 (Apache Cloudberry 1.0.0+1c0d6e2224 build dev) on x86_64( GCC 13.2.0) 13.2.0, 64-bit compiled on Sep 22 2023 10:56:01
     (1 row)
     
     postgres=# select * from gp_segment_configuration;
