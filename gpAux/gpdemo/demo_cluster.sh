@@ -182,7 +182,7 @@ if [ -z "${GPHOME}" ]; then
     echo "FATAL: The GPHOME environment variable is not set."
     echo ""
     echo "  You can set it by sourcing the greenplum_path.sh"
-    echo "  file in your CloudberryDB installation directory."
+    echo "  file in your Cloudberry installation directory."
     echo ""
     exit 1
 fi
@@ -235,17 +235,17 @@ GPPATH=`find -H $GPHOME -name gpstart| tail -1`
 RETVAL=$?
 
 if [ "$RETVAL" -ne 0 ]; then
-    echo "Error attempting to find CloudberryDB executables in $GPHOME"
+    echo "Error attempting to find Cloudberry executables in $GPHOME"
     exit 1
 fi
 
 if [ ! -x "$GPPATH" ]; then
-    echo "No executables found for CloudberryDB installation in $GPHOME"
+    echo "No executables found for Cloudberry installation in $GPHOME"
     exit 1
 fi
 GPPATH=`dirname $GPPATH`
 if [ ! -x $GPPATH/gpinitsystem ]; then
-    echo "No mgmt executables(gpinitsystem) found for CloudberryDB installation in $GPPATH"
+    echo "No mgmt executables(gpinitsystem) found for Cloudberry installation in $GPPATH"
     exit 1
 fi
 

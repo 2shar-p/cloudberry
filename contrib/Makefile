@@ -55,7 +55,7 @@ SUBDIRS = \
 		unaccent	\
 		vacuumlo
 
-# CloudberryDB-specific additions (to ease merge pain).
+# Cloudberry-specific additions (to ease merge pain).
 SUBDIRS += \
 		formatter \
 		formatter_fixedwidth \

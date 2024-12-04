@@ -41,7 +41,7 @@ usage(const char *progname)
 	printf(_(" [-D, --pgdata=]DATADIR  data directory\n"));
 	printf(_("  -V, --version          output version information, then exit\n"));
 	printf(_("  -?, --help             show this help, then exit\n"));
-	printf(_("  --gp-version   output CloudberryDB version information, then exit\n"));
+	printf(_("  --gp-version   output Cloudberry version information, then exit\n"));
 	printf(_("\nIf no data directory (DATADIR) is specified, "
 			 "the environment variable PGDATA\nis used.\n\n"));
 	printf(_("Report bugs to <%s>.\n"), PACKAGE_BUGREPORT);

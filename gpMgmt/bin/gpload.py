@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# gpload - load file(s) into Greenplum Database & CloudberryDB
+# gpload - load file(s) into Greenplum Database & Cloudberry
 # Copyright Greenplum 2008
 
 '''gpload [options] -f configuration file
@@ -2528,7 +2528,7 @@ WHERE relname = 'staging_gpload_reusable_%s';""" % (encoding_conditions)
         resultList = self.db.query(sql).getresult()
         if len(resultList) > 0:
             self.log(self.WARN, """Old style, reusable tables named "temp_gpload_reusable_*" from a previous versions were found.
-                         CloudberryDB recommends running "DROP TABLE temp_gpload_reusable_..." on each table. This only needs to be done once.""")
+                         Cloudberry recommends running "DROP TABLE temp_gpload_reusable_..." on each table. This only needs to be done once.""")
 
         # If the 'reuse tables' option was specified we now try to find an
         # already existing staging table in the catalog which will match

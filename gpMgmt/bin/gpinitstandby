@@ -193,19 +193,19 @@ def print_summary(options, array, standby_datadir, unreachable_hosts=[]):
     if options.remove:
         logger.info('Warm coordinator standby removal parameters')
     else:
-        logger.info('CloudberryDB standby coordinator initialization parameters')
+        logger.info('Cloudberry standby coordinator initialization parameters')
     logger.info('-----------------------------------------------------')
-    logger.info('CloudberryDB coordinator hostname               = %s' \
+    logger.info('Cloudberry coordinator hostname               = %s' \
                     % array.coordinator.getSegmentHostName())
-    logger.info('CloudberryDB coordinator data directory         = %s' \
+    logger.info('Cloudberry coordinator data directory         = %s' \
                     % array.coordinator.getSegmentDataDirectory())
-    logger.info('CloudberryDB coordinator port                   = %s' \
+    logger.info('Cloudberry coordinator port                   = %s' \
                     % array.coordinator.getSegmentPort())
     if options.remove:
-        logger.info('CloudberryDB standby coordinator hostname       = %s' \
+        logger.info('Cloudberry standby coordinator hostname       = %s' \
                         % array.standbyCoordinator.getSegmentHostName())
     else:
-        logger.info('CloudberryDB standby coordinator hostname       = %s' \
+        logger.info('Cloudberry standby coordinator hostname       = %s' \
                         % options.standby_host)
 
     if array.standbyCoordinator:
@@ -215,22 +215,22 @@ def print_summary(options, array, standby_datadir, unreachable_hosts=[]):
     else:
         standby_port = array.coordinator.getSegmentPort()
 
-    logger.info('CloudberryDB standby coordinator port           = %d' \
+    logger.info('Cloudberry standby coordinator port           = %d' \
                     % standby_port)
 
     if array.standbyCoordinator:
-        logger.info('CloudberryDB standby coordinator data directory = %s' \
+        logger.info('Cloudberry standby coordinator data directory = %s' \
                         % array.standbyCoordinator.getSegmentDataDirectory())
     else:
         if standby_datadir:
-            logger.info('CloudberryDB standby coordinator data directory = %s' % standby_datadir)
+            logger.info('Cloudberry standby coordinator data directory = %s' % standby_datadir)
         else:
             raise GpInitStandbyException('No data directory specified for standby coordinator')
 
     if not options.remove and options.no_update:
-        logger.info('CloudberryDB update system catalog         = Off')
+        logger.info('Cloudberry update system catalog         = Off')
     elif not options.remove:
-        logger.info('CloudberryDB update system catalog         = On')
+        logger.info('Cloudberry update system catalog         = On')
 
     # Confirm the action
     if options.confirm:

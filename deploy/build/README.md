@@ -11,15 +11,15 @@ This guides describes how to build Apache Cloudberry from source code.
 ## Build the database
 
 ```
-# Configure build environment to install at /usr/local/cloudberrydb
-./configure --with-perl --with-python --with-libxml --with-gssapi --prefix=/usr/local/cloudberrydb
+# Configure build environment to install at /usr/local/cloudberry
+./configure --with-perl --with-python --with-libxml --with-gssapi --prefix=/usr/local/cloudberry
 
 # Compile and install
 make -j8
 make -j8 install
 
 # Bring in greenplum environment for CBDB into your running shell
-source /usr/local/cloudberrydb/greenplum_path.sh
+source /usr/local/cloudberry/greenplum_path.sh
 
 # Start demo cluster
 make create-demo-cluster
@@ -90,8 +90,8 @@ without GPORCA, configure requires `--disable-orca` flag to be set.
 # Clean environment
 make distclean
 
-# Configure build environment to install at /usr/local/cloudberrydb
-./configure --disable-orca --with-perl --with-python --with-libxml --prefix=/usr/local/cloudberrydb
+# Configure build environment to install at /usr/local/cloudberry
+./configure --disable-orca --with-perl --with-python --with-libxml --prefix=/usr/local/cloudberry
 ```
 
 ## Building Apache Cloudberry with PXF

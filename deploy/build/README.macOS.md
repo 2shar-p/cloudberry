@@ -50,7 +50,7 @@ source deploy/build/README.macOS.bash
 ## Step 3. Configure, compile, and install
 
 ```bash
-# Run the following commands under the `cloudberrydb/` dir.
+# Run the following commands under the `cloudberry/` dir.
 # 1. Configure the build environment.
 
 BREWPREFIX=$(brew --prefix); export PATH="$BREWPREFIX/opt/gnu-sed/libexec/gnubin:$BREWPREFIX/opt/apr/bin:$PATH"; CXXFLAGS="-I $BREWPREFIX/include" CFLAGS="-ggdb -Og -g3 -fno-omit-frame-pointer -I $BREWPREFIX/include" LDFLAGS="-L $BREWPREFIX/lib" CC=$(which gcc-13) CXX=$(which g++-13) ./configure --enable-debug --prefix=$(cd ~; pwd)/install/cbdb;
@@ -108,14 +108,14 @@ source gpAux/gpdemo/gpdemo-env.sh
     postgres=# select * from gp_segment_configuration;
      dbid | content | role | preferred_role | mode | status | port |          hostname           |           address           |                                                 datadir                                                  | warehouseid 
     ------+---------+------+----------------+------+--------+------+-----------------------------+-----------------------------+----------------------------------------------------------------------------------------------------------+-------------
-        1 |      -1 | p    | p              | n    | u      | 8000 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberrydb/gpAux/gpdemo/datadirs/qddir/demoDataDir-1         |           0
-        8 |      -1 | m    | m              | s    | u      | 8001 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberrydb/gpAux/gpdemo/datadirs/standby                     |           0
-        3 |       1 | p    | p              | s    | u      | 8003 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberrydb/gpAux/gpdemo/datadirs/dbfast2/demoDataDir1        |           0
-        6 |       1 | m    | m              | s    | u      | 8006 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberrydb/gpAux/gpdemo/datadirs/dbfast_mirror2/demoDataDir1 |           0
-        2 |       0 | p    | p              | s    | u      | 8002 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberrydb/gpAux/gpdemo/datadirs/dbfast1/demoDataDir0        |           0
-        5 |       0 | m    | m              | s    | u      | 8005 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberrydb/gpAux/gpdemo/datadirs/dbfast_mirror1/demoDataDir0 |           0
-        4 |       2 | p    | p              | s    | u      | 8004 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberrydb/gpAux/gpdemo/datadirs/dbfast3/demoDataDir2        |           0
-        7 |       2 | m    | m              | s    | u      | 8007 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberrydb/gpAux/gpdemo/datadirs/dbfast_mirror3/demoDataDir2 |           0
+        1 |      -1 | p    | p              | n    | u      | 8000 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberry/gpAux/gpdemo/datadirs/qddir/demoDataDir-1         |           0
+        8 |      -1 | m    | m              | s    | u      | 8001 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberry/gpAux/gpdemo/datadirs/standby                     |           0
+        3 |       1 | p    | p              | s    | u      | 8003 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberry/gpAux/gpdemo/datadirs/dbfast2/demoDataDir1        |           0
+        6 |       1 | m    | m              | s    | u      | 8006 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberry/gpAux/gpdemo/datadirs/dbfast_mirror2/demoDataDir1 |           0
+        2 |       0 | p    | p              | s    | u      | 8002 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberry/gpAux/gpdemo/datadirs/dbfast1/demoDataDir0        |           0
+        5 |       0 | m    | m              | s    | u      | 8005 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberry/gpAux/gpdemo/datadirs/dbfast_mirror1/demoDataDir0 |           0
+        4 |       2 | p    | p              | s    | u      | 8004 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberry/gpAux/gpdemo/datadirs/dbfast3/demoDataDir2        |           0
+        7 |       2 | m    | m              | s    | u      | 8007 | hashdatas-MacBook-Pro.local | hashdatas-MacBook-Pro.local | /Users/hashdata/Documents/GitHub/upstream/cloudberry/gpAux/gpdemo/datadirs/dbfast_mirror3/demoDataDir2 |           0
     (8 rows)
 
     postgres=# 
@@ -128,5 +128,5 @@ source gpAux/gpdemo/gpdemo-env.sh
     make installcheck-world
     ```
 
-Congratulations 🎉! You've successfully installed and created a CloudberryDB cluster. Happy Hacking! 😉
+Congratulations 🎉! You've successfully installed and created a Cloudberry cluster. Happy Hacking! 😉
 

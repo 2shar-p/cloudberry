@@ -14,7 +14,7 @@
  *
  * For most node types, these routines are identical to the text reader
  * functions, in readfuncs.c. To avoid code duplication and merge hazards
- * (readfast.c is a CloudberryDB addon), most read routines borrow the source
+ * (readfast.c is a Cloudberry addon), most read routines borrow the source
  * definition from readfuncs.c, we just compile it with different READ_*
  * macros.
  *

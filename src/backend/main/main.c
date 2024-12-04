@@ -392,7 +392,7 @@ help(const char *progname)
 	printf(_("  --NAME=VALUE       set run-time parameter\n"));
 	printf(_("  --describe-config  describe configuration parameters, then exit\n"));
 	printf(_("  -?, --help         show this help, then exit\n"));
-	printf(_("  --gp-version       output CloudberryDB version information, then exit\n"));
+	printf(_("  --gp-version       output Cloudberry version information, then exit\n"));
 	printf(_("  --catalog-version  output the catalog version, then exit\n"));
 
 	printf(_("\nDeveloper options:\n"));
