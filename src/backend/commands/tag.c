@@ -3,7 +3,7 @@
  * tag.c
  *	  Commands to manipulate tag
  *
- * Tags in Cloudberry database are designed to make tag for a given database
+ * Tags in Apache Cloudberry are designed to make tag for a given database
  * object.
  *
  *

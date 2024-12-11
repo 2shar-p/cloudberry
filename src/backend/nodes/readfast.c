@@ -720,7 +720,7 @@ _readExtensibleNode(void)
 }
 
 /*
- * Cloudberry Database additions for serialization support
+ * Apache Cloudberry additions for serialization support
  */
 #include "nodes/plannodes.h"
 

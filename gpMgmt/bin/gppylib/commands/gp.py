@@ -1585,7 +1585,7 @@ def get_local_db_mode(coordinator_data_dir):
     mode = 'NORMAL'
 
     if not os.path.exists(coordinator_data_dir + '/postmaster.pid'):
-        raise Exception('Cloudberry database appears to be stopped')
+        raise Exception('Apache Cloudberry appears to be stopped')
 
     try:
         fp = open(coordinator_data_dir + '/postmaster.opts', 'r')
@@ -1595,7 +1595,7 @@ def get_local_db_mode(coordinator_data_dir):
         elif optline.find('gp_role=utility') > 0:
             mode = 'UTILITY'
     except OSError:
-        raise Exception('Failed to open %s.  Is Cloudberry Database running?' % coordinator_data_dir + '/postmaster.opts')
+        raise Exception('Failed to open %s.  Is Apache Cloudberry running?' % coordinator_data_dir + '/postmaster.opts')
     except IOError:
         raise Exception('Failed to read options from %s' % coordinator_data_dir + '/postmaster.opts')
     finally:

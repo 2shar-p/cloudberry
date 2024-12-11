@@ -1891,7 +1891,7 @@ class gpload:
                 self.setup_connection(recurse)
             else:
                 self.log(self.ERROR, "could not connect to database: %s. Is " \
-                    "the Cloudberry Database running on port %i?" % (errorMessage,
+                    "the Apache Cloudberry running on port %i?" % (errorMessage,
                     self.options.p))
 
 

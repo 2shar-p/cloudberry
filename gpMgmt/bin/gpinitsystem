@@ -48,7 +48,7 @@ VERBOSE=1
 INTERACTIVE=1
 MIRRORING=0
 INST_COUNT=0
-# Cloudberry database specific parameters
+# Apache Cloudberry specific parameters
 GP_USER=$USER_NAME
 # System table names
 GP_TBL=gp_id
@@ -120,7 +120,7 @@ USAGE () {
 		$ECHO
 		$ECHO "      `basename $0` -c gp_config_file [OPTIONS]"
 		$ECHO
-		$ECHO "      Creates a new Cloudberry Database instance on a Coordinator host and a number of"
+		$ECHO "      Creates a new Apache Cloudberry instance on a Coordinator host and a number of"
 		$ECHO "      segment instance hosts."
 		$ECHO
 		$ECHO "      General options:"
@@ -152,7 +152,7 @@ USAGE () {
 		$ECHO "          the new CloudberryDB instance. Normally set in gp_config_file."
 		$ECHO "      -I, <input_configuration_file>"
 		$ECHO "          The full path and filename of an input configuration file, which defines the"
-		$ECHO "          Cloudberry Database members and segments using the QD_PRIMARY_ARRAY and"
+		$ECHO "          Apache Cloudberry members and segments using the QD_PRIMARY_ARRAY and"
 		$ECHO "          PRIMARY_ARRAY parameters. The input configuration file is typically created by"
 		$ECHO "          using gpinitsystem with the -O <output_configuration_file> option. You must"
 		$ECHO "          provide either the -c <cluster_configuration_file> option or the -I"
@@ -163,12 +163,12 @@ USAGE () {
 		$ECHO "          When used with the -O option, gpinitsystem does not create a new CloudberryDB"
 		$ECHO "          Database cluster but instead writes the supplied cluster configuration"
 		$ECHO "          information to the specified output_configuration_file. This file defines"
-		$ECHO "          Cloudberry Database members and segments using the QD_PRIMARY_ARRAY and"
+		$ECHO "          Apache Cloudberry members and segments using the QD_PRIMARY_ARRAY and"
 		$ECHO "          PRIMARY_ARRAY parameters, and can be later used with -I"
 		$ECHO "          <input_configuration_file> to initialize a new cluster."
 		$ECHO "      -p, postgresql_conf_gp_additions [optional]"
 		$ECHO "          List of additional PostgreSQL parameters to be applied to each Coordinator/Segment"
-		$ECHO "          postgresql.conf file during Cloudberry Database initialization."
+		$ECHO "          postgresql.conf file during Apache Cloudberry initialization."
 		$ECHO "      -P, standby_port [optional]"
 		$ECHO "      -s, standby_hostname [optional]"
 		$ECHO "      -U, Use external FTS, default false"
@@ -1112,7 +1112,7 @@ DISPLAY_CONFIG () {
 		export QD_DIR=$GP_DIR
 	if [ x"" != x"$INTERACTIVE" ];then
 		SET_VAR $QD_PRIMARY_ARRAY
-		LOG_MSG "[INFO]:-Cloudberry Database Creation Parameters" 1
+		LOG_MSG "[INFO]:-Apache Cloudberry Creation Parameters" 1
 		LOG_MSG "[INFO]:---------------------------------------" 1
 		LOG_MSG "[INFO]:-Coordinator Configuration" 1
 		LOG_MSG "[INFO]:---------------------------------------" 1
@@ -2293,7 +2293,7 @@ if [ x"" != x"$STANDBY_HOSTNAME" ];then
 fi
 
 SCAN_LOG
-LOG_MSG "[INFO]:-Cloudberry Database instance successfully created" 1
+LOG_MSG "[INFO]:-Apache Cloudberry instance successfully created" 1
 LOG_MSG "[INFO]:-------------------------------------------------------" 1
 LOG_MSG "[INFO]:-To complete the environment configuration, please " 1
 LOG_MSG "[INFO]:-update $USER_NAME .bashrc file with the following" 1

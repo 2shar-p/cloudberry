@@ -298,7 +298,7 @@ transformOptionalSelectInto(ParseState *pstate, Node *parseTree)
 		 * (for update | no key update | share | key share) in postgres
 		 * is to hold RowShareLock on tables during parsing stage, and
 		 * generate a LockRows plan node for executor to lock the tuples.
-		 * It is not easy to lock tuples in Cloudberry database, since
+		 * It is not easy to lock tuples in Apache Cloudberry, since
 		 * tuples may be fetched through motion nodes.
 		 *
 		 * But when Global Deadlock Detector is enabled, and the select
@@ -528,7 +528,7 @@ transformDeleteStmt(ParseState *pstate, DeleteStmt *stmt)
 			ereport(ERROR,
 					(errcode(ERRCODE_FEATURE_NOT_SUPPORTED),
 					 errmsg("writable CTE queries cannot be themselves writable"),
-					 errdetail("Cloudberry Database currently only support CTEs with one writable clause, called in a non-writable context."),
+					 errdetail("Apache Cloudberry currently only support CTEs with one writable clause, called in a non-writable context."),
 					 errhint("Rewrite the query to only include one writable clause.")));
 	}
 
@@ -631,7 +631,7 @@ transformInsertStmt(ParseState *pstate, InsertStmt *stmt)
 			ereport(ERROR,
 					(errcode(ERRCODE_FEATURE_NOT_SUPPORTED),
 					 errmsg("writable CTE queries cannot be themselves writable"),
-					 errdetail("Cloudberry Database currently only support CTEs with one writable clause, called in a non-writable context."),
+					 errdetail("Apache Cloudberry currently only support CTEs with one writable clause, called in a non-writable context."),
 					 errhint("Rewrite the query to only include one writable clause.")));
 	}
 
@@ -2793,7 +2793,7 @@ transformUpdateStmt(ParseState *pstate, UpdateStmt *stmt)
 			ereport(ERROR,
 					(errcode(ERRCODE_FEATURE_NOT_SUPPORTED),
 					 errmsg("writable CTE queries cannot be themselves writable"),
-					 errdetail("Cloudberry Database currently only support CTEs with one writable clause, called in a non-writable context."),
+					 errdetail("Apache Cloudberry currently only support CTEs with one writable clause, called in a non-writable context."),
 					 errhint("Rewrite the query to only include one writable clause.")));
 	}
 

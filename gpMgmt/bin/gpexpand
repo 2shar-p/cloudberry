@@ -1900,7 +1900,7 @@ WHERE
         synchronization of packages. We should *not* disturb the user's attempts to expand.
         """
         try:
-            logger.info('Syncing Cloudberry Database extensions')
+            logger.info('Syncing Apache Cloudberry extensions')
             new_segment_list = self.gparray.getExpansionSegDbList()
             new_host_set = set([h.getSegmentHostName() for h in new_segment_list])
             operations = [SyncPackages(host) for host in new_host_set]
@@ -1909,7 +1909,7 @@ WHERE
             for operation in operations:
                 operation.get_ret()
         except Exception:
-            logger.exception('Syncing of Cloudberry Database extensions has failed.')
+            logger.exception('Syncing of Apache Cloudberry extensions has failed.')
             logger.warning('Please run gppkg --clean after successful expansion.')
 
     def validate_heap_checksums(self):
@@ -2537,7 +2537,7 @@ def main(options, args, parser):
         sys.exit(0)
 
     except ValidationError:
-        logger.info('Bringing Cloudberry Database back online...')
+        logger.info('Bringing Apache Cloudberry back online...')
         if _gp_expand is not None:
             _gp_expand.shutdown()
         sys.exit()

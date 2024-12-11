@@ -202,13 +202,13 @@ EOF
 
 if [ "${WITH_MIRRORS}" == "true" ]; then
 cat <<-EOF
-	  This is a MIRRORED demo of the Cloudberry Database system.  We will create
+	  This is a MIRRORED demo of the Apache Cloudberry system.  We will create
 	  a cluster installation with coordinator and `expr 2 \* ${NUM_PRIMARY_MIRROR_PAIRS}` segment instances
 	  (${NUM_PRIMARY_MIRROR_PAIRS} primary & ${NUM_PRIMARY_MIRROR_PAIRS} mirror).
 EOF
 elif [ "${WITH_MIRRORS}" == "false" ]; then
 cat <<-EOF
-	  This is a MIRRORLESS demo of the Cloudberry Database system.  We will create
+	  This is a MIRRORLESS demo of the Apache Cloudberry system.  We will create
 	  a cluster installation with coordinator and ${NUM_PRIMARY_MIRROR_PAIRS} segment instances.
 EOF
 fi
@@ -297,7 +297,7 @@ cat >> $CLUSTER_CONFIG <<-EOF
 	# This names the data directories for the Segment Instances and the Entry Postmaster
 	SEG_PREFIX=$SEG_PREFIX
 	
-	# This is the port at which to contact the resulting Cloudberry database, e.g.
+	# This is the port at which to contact the resulting Apache Cloudberry, e.g.
 	#   psql -p \$PORT_BASE -d template1
 	PORT_BASE=${DEMO_PORT_BASE}
 	

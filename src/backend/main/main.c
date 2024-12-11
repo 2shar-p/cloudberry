@@ -203,7 +203,7 @@ main(int argc, char *argv[])
 		}
 		if (strcmp(argv[1], "--gp-version") == 0)
 		{
-			fputs("postgres (Cloudberry Database) " GP_VERSION "\n", stdout);
+			fputs("postgres (Apache Cloudberry) " GP_VERSION "\n", stdout);
 			exit(0);
 		}
 		if (strcmp(argv[1], "--catalog-version") == 0 )

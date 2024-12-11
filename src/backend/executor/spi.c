@@ -1732,7 +1732,7 @@ SPI_cursor_open_internal(const char *name, SPIPlanPtr plan,
 	}
 
 	/*
-	 * Cloudberry Database needs this
+	 * Apache Cloudberry needs this
 	 */
 	portal->is_extended_query = true;
 

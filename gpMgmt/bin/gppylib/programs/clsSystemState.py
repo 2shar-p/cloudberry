@@ -1299,7 +1299,7 @@ class GpSystemStateProgram:
 
         exitCode = 0
 
-        logger.info("-Quick Cloudberry Database status from Coordinator instance only")
+        logger.info("-Quick Apache Cloudberry status from Coordinator instance only")
         logger.info( "----------------------------------------------------------")
 
         segments = [seg for seg in gpArray.getDbList() if seg.isSegmentQE()]
