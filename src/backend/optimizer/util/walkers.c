@@ -76,7 +76,7 @@ walk_plan_node_fields(Plan *plan,
 	if (walker((Node *) (plan->initPlan), context))
 		return true;
 
-	/* Cloudberry Database Flow node */
+	/* Apache Cloudberry Flow node */
 	if (walker((Node *) (plan->flow), context))
 		return true;
 
@@ -440,11 +440,11 @@ plan_tree_walker(Node *node,
 			if (walk_plan_node_fields((Plan *) node, walker, context))
 				return true;
 
-			/* Cloudberry Database Limit Count */
+			/* Apache Cloudberry Limit Count */
 			if (walker((Node *) (((Limit*) node)->limitCount), context))
 					return true;
 
-			/* Cloudberry Database Limit Offset */
+			/* Apache Cloudberry Limit Offset */
 			if (walker((Node *) (((Limit*) node)->limitOffset), context))
 					return true;
 

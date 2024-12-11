@@ -120,7 +120,7 @@ CPhysicalInnerIndexNLJoin::Ped(CMemoryPool *mp, CExpressionHandle &exprhdl,
 		Edm(prppInput, child_index, pdrgpdpCtxt, ulDistrReq);
 
 	// FIXME: nestloop with inner index scan may produce wrong plan, see
-	// issue https://github.com/cloudberrydb/cloudberrydb/issues/567
+	// issue https://github.com/apache/cloudberry/issues/567
 	// Fallback to postgres optimizer to avoid wrong plan. We should
 	// fix this issue and remove the following exception.
 	GPOS_RAISE(gpopt::ExmaGPOPT, gpopt::ExmiUnsupportedOp,

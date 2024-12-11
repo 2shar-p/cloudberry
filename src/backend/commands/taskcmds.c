@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------------------
  *
  * taskcmds.c
- *      Cloudberry Database TASK SCHEDULE support code.
+ *      Apache Cloudberry TASK SCHEDULE support code.
  *
  * Copyright (c) 2023, HashData Technology Limited.
  *

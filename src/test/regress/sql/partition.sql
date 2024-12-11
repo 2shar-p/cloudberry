@@ -3795,7 +3795,7 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE SELECT ON TABLES FROM user_prt_
 DROP ROLE user_prt_acl;
 
 --
--- Github issue: https://github.com/cloudberrydb/cloudberrydb/issues/547
+-- Github issue: https://github.com/apache/cloudberry/issues/547
 -- Test COPY FROM on partitions tables.
 --
 create table t_issue_547_aoco(a int, b int) partition by range(b) (start(1) end(34) every(1)) using ao_column distributed by (a);

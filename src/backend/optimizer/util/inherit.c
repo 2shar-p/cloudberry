@@ -124,7 +124,7 @@ expand_inherited_rtentry(PlannerInfo *root, RelOptInfo *rel,
                 * (for update | no key update | share | key share) in postgres
                 * is to hold RowShareLock on tables during parsing stage, and
                 * generate a LockRows plan node for executor to lock the tuples.
-                * It is not easy to lock tuples in Cloudberry database, since
+                * It is not easy to lock tuples in Apache Cloudberry, since
                 * tuples may be fetched through motion nodes.
                 *
                 * But when Global Deadlock Detector is enabled, and the select

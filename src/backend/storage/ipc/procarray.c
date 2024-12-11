@@ -2884,7 +2884,7 @@ GetSnapshotData(Snapshot snapshot, DtxContext distributedTransactionContext)
 
 	/*
 	 * Support for true serializable isolation is not yet implemented in
-	 * CloudberryDB.  See merge fixme in assign_XactIsoLevel().
+	 * Cloudberry.  See merge fixme in assign_XactIsoLevel().
 	 */
 	Assert(XactIsoLevel < XACT_SERIALIZABLE);
 

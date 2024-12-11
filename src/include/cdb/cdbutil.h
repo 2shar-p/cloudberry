@@ -53,7 +53,7 @@ typedef enum SegmentType
 }SegmentType;
 
 /*
- * performs all necessary setup required for initializing Cloudberry Database components.
+ * performs all necessary setup required for initializing Apache Cloudberry components.
  *
  * This includes cdblink_setup() and initializing the Motion Layer.
  *
@@ -62,8 +62,8 @@ extern void cdb_setup(void);
 
 
 /*
- * performs all necessary cleanup required when cleaning up Cloudberry Database components
- * when disabling Cloudberry Database functionality.
+ * performs all necessary cleanup required when cleaning up Apache Cloudberry components
+ * when disabling Apache Cloudberry functionality.
  *
  */
 extern void cdb_cleanup(int code, Datum arg  pg_attribute_unused() );
