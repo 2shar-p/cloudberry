@@ -31,7 +31,7 @@ CREATE TABLE my_tt_agg_small (
 --
 COPY my_tt_agg_small (symbol, event_ts, trade_price, trade_volume) FROM stdin;
 --
--- Apache Cloudberry dump complete
+-- Apache Cloudberry database dump complete
 --
 --
 -- Apache Cloudberry database dump
