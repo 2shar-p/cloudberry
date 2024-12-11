@@ -24,11 +24,35 @@
 #include "storage/fd.h"
 #include "utils/relcache.h"
 
+/*
+ * Extension can register a new storage manager(smgr) by implementing
+ * its own struct f_smgr.
+ * Each storage manager has a unique implementation id, which is used
+ * to identify the smgr.
+ *
+ * The smgr_register function is used to register the smgr. it will
+ * check if the smgr is already registered, if so, return SMGR_INVALID.
+ * otherwise, register the smgr and return the implementation id.
+ *
+ * The smgr id of each relation is fixed and cannot be changed. because the
+ * type of smgr is logged in the commit log and wal log. If the value of
+ * smgr is changed, data corruption may occur.
+ *
+ * How to ensure that the smgr of each extension does not conflict? One way
+ * is to predefine the smgr id used by the extension in Cloudberry; the other
+ * way is to refer to the practice of custom rmgr and provide a wiki page
+ * [https://wiki.postgresql.org/wiki/CustomWALResourceManagers] to record
+ * the use of smgr to avoid conflicts.
+ *
+ * FIXME: For PAX_AM_OID, Cloudberrydb reserves this value for ORCA, a
+ * predefined value is used here to reserve the smgr id for PAX_AM_OID.
+ */
 typedef enum SMgrImplementation
 {
 	SMGR_INVALID = -1,
 	SMGR_MD = 0,
 	SMGR_AO = 1,
+	SMGR_PAX = 2,
 } SMgrImpl;
 
 struct f_smgr;
@@ -105,6 +129,7 @@ typedef SMgrRelationData *SMgrRelation;
  */
 typedef struct f_smgr
 {
+	const char 	*smgr_name;
 	void		(*smgr_init) (void);	/* may be NULL */
 	void		(*smgr_shutdown) (void);	/* may be NULL */
 	void		(*smgr_open) (SMgrRelation reln);
@@ -148,8 +173,16 @@ typedef void (*smgr_shutdown_hook_type) (void);
 extern PGDLLIMPORT smgr_init_hook_type smgr_init_hook;
 extern PGDLLIMPORT smgr_hook_type smgr_hook;
 extern PGDLLIMPORT smgr_shutdown_hook_type smgr_shutdown_hook;
-
 extern bool smgr_is_heap_relation(SMgrRelation reln);
+
+// must be registered in the shared_preload_libraries phase.
+// return the SMgrImpl value, in extension we should check the return value is equal to the smgr_impl,
+// otherwise it's an error.
+extern SMgrImpl smgr_register(const f_smgr *smgr, SMgrImpl smgr_impl);
+
+extern const f_smgr *smgr_get(SMgrImpl smgr_impl);
+
+extern SMgrImpl smgr_get_impl(const Relation rel);
 
 extern void smgrinit(void);
 extern SMgrRelation smgropen(RelFileNode rnode, BackendId backend,
@@ -182,6 +215,8 @@ extern void smgrimmedsync(SMgrRelation reln, ForkNumber forknum);
 extern void AtEOXact_SMgr(void);
 
 extern const struct f_smgr_ao * smgrAOGetDefault(void);
+
+extern const char* smgr_get_name(SMgrImpl impl);
 
 
 /*
